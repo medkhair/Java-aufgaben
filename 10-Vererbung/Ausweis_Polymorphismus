@@ -1,0 +1,60 @@
+public class Ausweis {
+  protected int nummer;           // Nummer des Ausweises
+  protected String inhaber;       // Inhaber des Ausweises
+  protected String ablaufdatum;   // Ablaufdatum des Ausweises
+ 
+  public Ausweis(int nummer, String inhaber, String ablaufdatum) {
+    this.nummer = nummer;
+    this.inhaber = inhaber;
+    this.ablaufdatum = ablaufdatum;
+  }
+ 
+  public int getNummer() { return nummer; }
+  public String getInhaber() { return inhaber; }
+  public String getAblaufdatum() { return ablaufdatum; }
+}
+ 
+//--------------------------------------------------
+public class Identitaetskarte extends Ausweis {
+  public int groesse;         // Groesse des Inhabers
+  public String buergerort;   // Buergerort des Inhabers
+ 
+  public Identitaetskarte(int nummer, String inhaber,
+                          String ablaufdatum, int groesse,
+                          String buergerort) {
+    super(nummer, inhaber, ablaufdatum);
+    this.groesse = groesse;
+    this.buergerort = buergerort;
+  }
+ 
+  public int getGroesse() { return groesse; }
+  public String getBuergerort() { return buergerort; }
+}
+ 
+//--------------------------------------------------
+public class Pass extends Identitaetskarte {
+  public String fingerabdruck;   // Digitaler Fingerabdruck
+                                 // des Inhabers
+ 
+  public Pass(int nummer, String inhaber, String ablaufdatum,
+              int groesse, String buergerort, String fingerabdruck) {
+    super(nummer, inhaber, ablaufdatum, groesse, buergerort);
+    this.fingerabdruck = fingerabdruck;
+  }
+ 
+  public String getFingerabdruck() { return fingerabdruck; }
+}
+ 
+//--------------------------------------------------
+public class Fahrausweis extends Ausweis {
+  public String kategorien;   // Fahrzeugkatogerien, die der Inhaber
+                              // lenken darf
+ 
+  public Fahrausweis(int nummer, String inhaber, String ablaufdatum,
+                     String kategorien) {
+    super(nummer, inhaber, ablaufdatum);
+    this.kategorien = kategorien;
+  }
+ 
+  public String getKategorien() { return kategorien; }
+}
