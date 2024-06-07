@@ -6,19 +6,21 @@ class Rotieren{
 		char[] c = s.toCharArray();
 		char[] temp = new char[c.length];
 		if (r>0) {
-			for (k=(c.length)-r;k<(c.length);k++) {
-				temp[sk]=c[k % c.length];
-				sk += 1;
+			while(sk<r){
+				for (k=0;k<c.length;k++) {
+					temp[k]=c[k];
+				}
+				c[0] = temp[temp.length-1];
+				for (i=1;i<c.length;i++) {
+					c[i] = temp[i-1];
+				}
+				sk++;
 			}
-			for (j=0;j<(c.length)-r;j++) {
-				c[j+r]=c[j];
-			}
-			for (i=0;i<r;i++) {
-				c[i]=temp[i];
-			}
+			
 		}
 		if (r<0) {
 			r=r*(-1);
+			
 			for (k=0;k<r;k++) {
 				temp[k]=c[k];
 			}
